@@ -29,7 +29,9 @@ if log == "y":
     # download all post
     ig.download_profile(user,profile_pic_only=False)
 
-    #print list of followers
+    print()
+
+    #print a list of followers
     followers = profile.get_followers()
     for follower in followers:
         print(follower)
