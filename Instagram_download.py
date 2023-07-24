@@ -22,16 +22,18 @@ if log == "y":
 
     # download all tagged post
     #ig.download_profile(user,download_tagged = True)
+    #print()
 
     # download all stories
     #ig.download_profile(user,download_stories=True)
+    #print()
 
     # download all post
     ig.download_profile(user,profile_pic_only=False)
 
     print()
 
-    #print a list of followers
+    #print list of followers
     followers = profile.get_followers()
     for follower in followers:
         print(follower)
