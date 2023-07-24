@@ -29,6 +29,7 @@ if log == "y":
     #print()
 
     # download all post
+    print("Downloading all post...")
     ig.download_profile(user,profile_pic_only=False)
 
     print()
