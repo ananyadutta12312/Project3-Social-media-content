@@ -10,6 +10,7 @@ private = profile.is_private
 print("Is account private:",private)
 
 # #download profile pic
+print("Downloading profile picture...")
 ig.download_profile(user,profile_pic_only=True)
 
 print("For more account details please login")
@@ -20,21 +21,40 @@ if log == "y":
     password = input("Enter password: ")
     ig.login(username,password)
 
-    # download all tagged post
-    #ig.download_profile(user,download_tagged = True)
-    #print()
+    conti = True
 
-    # download all stories
-    #ig.download_profile(user,download_stories=True)
-    #print()
+    while(conti == True):
+        print("choose your options:")
+        options = ["List of Follower","List of Followee","Download all Post"]
+        for i in range(len(options)):
+            print(str(i) + ":" + options[i])
+        
+        option_input = int(input())
 
-    # download all post
-    print("Downloading all post...")
-    ig.download_profile(user,profile_pic_only=False)
+        if option_input == 0:
+            #print list of followers
+            followers = profile.get_followers()
+            for follower in followers:
+                print(follower)
+            print()
 
-    print()
+        if option_input == 1:
+            #print list of followers
+            followees = profile.get_followees()
+            for followee in followees:
+                print(followee)
+            print()
 
-    #print list of followers
-    followers = profile.get_followers()
-    for follower in followers:
-        print(follower)
+        if option_input == 2:
+            # download all post
+            print("Downloading all post...")
+            ig.download_profile(user,profile_pic_only=False)
+
+            print()
+
+        print("Do you want to continue: y/n")
+        choise = input()
+        if choise == "y":
+            conti = True
+        elif choise == "n":
+            conti = False
